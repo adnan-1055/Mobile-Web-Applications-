@@ -1,1 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <!-- Title text at the top -->
+    <TextView
+        android:id="@+id/IconStrings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultS"
+        android:textSize="22sp"
+        android:paddingBottom="12dp" />
+
+    <!-- 2-column grid, 10 icons total (5 rows × 2 columns) -->
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="5"
+        android:alignmentMode="alignMargins"
+        android:rowOrderPreserved="false">
+
+        <!-- Row 1 -->
+        <ImageView
+            android:id="@+id/catID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/cat"
+            android:contentDescription="@string/catS" />
+
+        <ImageView
+            android:id="@+id/dogID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/dog"
+            android:contentDescription="@string/dogS" />
+
+        <!-- Row 2 -->
+        <ImageView
+            android:id="@+id/birdID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/bird"
+            android:contentDescription="@string/birdS" />
+
+        <ImageView
+            android:id="@+id/elephantID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/elephant"
+            android:contentDescription="@string/elephantS" />
+
+        <!-- Row 3 -->
+        <ImageView
+            android:id="@+id/cowID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/cow"
+            android:contentDescription="@string/cowS" />
+
+        <ImageView
+            android:id="@+id/horseID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/horse"
+            android:contentDescription="@string/horseS" />
+
+        <!-- Row 4 -->
+        <ImageView
+            android:id="@+id/duckID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/duck"
+            android:contentDescription="@string/duckS" />
+
+        <ImageView
+            android:id="@+id/lambID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/lamb"
+            android:contentDescription="@string/lambS" />
+
+        <!-- Row 5 -->
+        <ImageView
+            android:id="@+id/goatID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/goat"
+            android:contentDescription="@string/goatS" />
+
+        <ImageView
+            android:id="@+id/monkeyID"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/monkey"
+            android:contentDescription="@string/monkeyS" />
+    </GridLayout>
+
+    <!-- Reset/Clear button (hidden until used) -->
+    <Button
+        android:id="@+id/ButtonDefault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resetS"
+        android:visibility="gone"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
 
