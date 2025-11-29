@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Per-animal colours used by ChangeUI(...) -->
+    <color name="catC">#FF6FA8DC</color>       
+    <color name="dogC">#FF93C47D</color>        
+    <color name="birdC">#FFE69138</color>       
+    <color name="elephantC">#FF999999</color>   
+    <color name="cowC">#FF7DCEA0</color>       
+    <color name="horseC">#FFB5651D</color>      
+    <color name="duckC">#FFF1C232</color>      
+    <color name="lambC">#FFE06666</color>       
+    <color name="goatC">#FF8E7CC3</color>       
+    <color name="monkeyC">#FF6AA84F</color>     
+</resources>
+
