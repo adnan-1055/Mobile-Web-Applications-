@@ -1,1 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cute Icons</string>
+    <string name="defaultS">Select an animal</string>
+    <string name="resetS">Clear</string>
+
+    <string name="catS">Cat</string>
+    <string name="dogS">Dog</string>
+    <string name="birdS">Bird</string>
+    <string name="elephantS">Elephant</string>
+    <string name="cowS">Cow</string>
+    <string name="horseS">Horse</string>
+    <string name="duckS">Duck</string>
+    <string name="lambS">Lamb</string>
+    <string name="goatS">Goat</string>
+    <string name="monkeyS">Monkey</string>
+</resources>
 
