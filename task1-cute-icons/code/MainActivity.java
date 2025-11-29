@@ -1,74 +1,106 @@
-package com.example.cuteicons;
+package com.example.cute_icons_app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView animalName;
-    private ImageView catIcon, dogIcon, lionIcon, monkeyIcon, pandaIcon, rabbitIcon, snakeIcon, tigerIcon, cowIcon, horseIcon;
-    private MediaPlayer mediaPlayer;
-    private Animation shakeAnimation;
+    private TextView iconS;
+    private Button buttonD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set the layout file
         setContentView(R.layout.activity_main);
 
-        animalName = findViewById(R.id.animalName);
+        // Initialize the views
+        iconS = findViewById(R.id.IconStrings);
+        buttonD = findViewById(R.id.ButtonDefault);
 
-        catIcon = findViewById(R.id.catIcon);
-        dogIcon = findViewById(R.id.dogIcon);
-        lionIcon = findViewById(R.id.lionIcon);
-        monkeyIcon = findViewById(R.id.monkeyIcon);
-        pandaIcon = findViewById(R.id.pandaIcon);
-        rabbitIcon = findViewById(R.id.rabbitIcon);
-        snakeIcon = findViewById(R.id.snakeIcon);
-        tigerIcon = findViewById(R.id.tigerIcon);
-        cowIcon = findViewById(R.id.cowIcon);
-        horseIcon = findViewById(R.id.horseIcon);
+        // Set up the listeners for the animal icons
+        iconUI();
 
-        shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake);
-
-        setIconListener(catIcon, "Cat", R.raw.cat_sound);
-        setIconListener(dogIcon, "Dog", R.raw.dog_sound);
-        setIconListener(lionIcon, "Lion", R.raw.lion_sound);
-        setIconListener(monkeyIcon, "Monkey", R.raw.monkey_sound);
-        setIconListener(pandaIcon, "Panda", R.raw.panda_sound);
-        setIconListener(rabbitIcon, "Rabbit", R.raw.rabbit_sound);
-        setIconListener(snakeIcon, "Snake", R.raw.snake_sound);
-        setIconListener(tigerIcon, "Tiger", R.raw.tiger_sound);
-        setIconListener(cowIcon, "Cow", R.raw.cow_sound);
-        setIconListener(horseIcon, "Horse", R.raw.horse_sound);
-    }
-
-    private void setIconListener(ImageView icon, String name, int soundRes) {
-        icon.setOnClickListener(new View.OnClickListener() {
+        // Set up the listener for the Clear Text button
+        buttonD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                animalName.setText(name);
-                animalName.startAnimation(shakeAnimation);
-
-                if (mediaPlayer != null) {
-                    mediaPlayer.release();
-                }
-
-                mediaPlayer = MediaPlayer.create(MainActivity.this, soundRes);
-                mediaPlayer.start();
+                ReturnToDefault();
             }
         });
     }
 
-    public void reset(View view) {
-        animalName.setText("Select an animal");
-        animalName.setTextColor(getResources().getColor(R.color.black));
+    private void iconUI() {
+        // Pass the icon ID, text ID, color ID, and sound ID to each listener
+        setIconListener(R.id.catID, R.string.catS, R.color.catC, R.raw.cat);
+        setIconListener(R.id.dogID, R.string.dogS, R.color.dogC, R.raw.dog);
+        setIconListener(R.id.birdID, R.string.birdS, R.color.birdC, R.raw.birds);
+        setIconListener(R.id.elephantID, R.string.elephantS, R.color.elephantC, R.raw.elephant);
+        setIconListener(R.id.cowID, R.string.cowS, R.color.cowC, R.raw.cow);
+        setIconListener(R.id.horseID, R.string.horseS, R.color.horseC, R.raw.horse);
+        setIconListener(R.id.duckID, R.string.duckS, R.color.duckC, R.raw.duck);
+        setIconListener(R.id.lambID, R.string.lambS, R.color.lambC, R.raw.lamb);
+        setIconListener(R.id.goatID, R.string.goatS, R.color.goatC, R.raw.goat);
+        setIconListener(R.id.monkeyID, R.string.monkeyS, R.color.monkeyC, R.raw.monkey);
+    }
+
+    private void setIconListener(int cuteIcon, int stringText, int colour, int soundNoise) {
+        ImageView icon;
+        icon = findViewById(cuteIcon);
+
+        icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Making the animation of shake when user clicks on the icon
+                Animation smallShake = AnimationUtils.loadAnimation(MainActivity.this,
+                        R.anim.shake);
+                icon.startAnimation(smallShake);
+
+                // Change the text and colour on the top when new icon clicked
+                ChangeUI(stringText, colour);
+
+                // Play sound of animals when user clicks on the icon
+                MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this, soundNoise);
+                mediaPlayer.start();
+
+                // Release resources once sound completes
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        mediaPlayer.release();
+                    }
+                });
+            }
+        });
+    }
+
+    private void ChangeUI(int stringResId, int colorResId) {
+        // Change the text and its color
+        iconS.setText(stringResId);
+        iconS.setTextColor(getResources().getColor(colorResId));
+
+        // Change the button's background color and make it visible
+        buttonD.setBackgroundTintList(getResources().getColorStateList(colorResId));
+        buttonD.setVisibility(View.VISIBLE);
+    }
+
+    private void ReturnToDefault() {
+        // Reset the text and color
+        iconS.setText(R.string.defaultS);
+        iconS.setTextColor(Color.BLACK);
+
+        // Reset the button to its default state and hide it
+        buttonD.setVisibility(View.GONE);
+        buttonD.setBackgroundTintList(getResources().getColorStateList(R.color.white));
     }
 }
-
