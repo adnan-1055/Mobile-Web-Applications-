@@ -1,4 +1,4 @@
-Task 1 — Cute Icons App
+Task 1: Cute Icons App
 
 An interactive Android app built in Java using XML layouts, animations, and MediaPlayer.
 Users can tap on different animal icons to trigger:
